@@ -7,7 +7,7 @@ var app = express();
 // in latest body-parser use like below.
 //app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.use(require('./controllers'));
+app.use(require('./controllers'));
 
 app.listen(8081, function () {
   console.log('Race app listening at port 8081...holla at me');
