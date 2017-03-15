@@ -9,14 +9,14 @@ describe('Status: ', function() {
       };
 
       res = {
-        sendfile: function() {}
+        sendStatus: function() {}
       };
 
-      spyOn(res, 'sendFile');
+      spyOn(res, 'sendStatus');
 
       submitStatus(req, res);
 
-      expect(res.sendFile).toHaveBeenCalled();
+      expect(res.sendStatus).toHaveBeenCalledWith(200);
     })
   })
 })
