@@ -1,0 +1,29 @@
+{
+  "name": "build-watcher",
+  "version": "1.0.0",
+  "description": "Listens for a web hook and changes the traffic light based on build status",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "body-parser": "^1.15.0",
+    "dotenv":"^2.0.0"
+  },
+  "scripts": {
+    "test": "jasmine-node --color --autotest tests --watch controllers models",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonAbney/CodeRace.git"
+  },
+  "author": "Don Abney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DonAbney/BuildWatcher/issues"
+  },
+  "homepage": "https://github.com/DonAbney/BuildWatcher#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "jasmine-node": "^1.14.5"
+  }
+}
