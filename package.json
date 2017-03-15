@@ -9,7 +9,7 @@
     "dotenv":"^2.0.0"
   },
   "scripts": {
-    "test": "jasmine-node --color --autotest tests --watch controllers models",
+    "test": "jasmine-node --color --autotest tests --watch controllers",
     "start": "node app.js"
   },
   "repository": {

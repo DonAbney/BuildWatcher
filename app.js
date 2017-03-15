@@ -7,7 +7,6 @@ var app = express();
 // in latest body-parser use like below.
 //app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.use(express.static('public'));
 //app.use(require('./controllers'));
 
 app.listen(8081, function () {
