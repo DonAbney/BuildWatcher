@@ -1,7 +1,7 @@
 var submitStatus = require('../../controllers/submitStatus');
 var Status = require('../../models/status');
 
-describe('Status: ', function() {
+describe('SubmitStatus: ', function() {
   describe('POST', function() {
     it('replies to the POST with a success message', function() {
       var req, res;
