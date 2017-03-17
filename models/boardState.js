@@ -1,5 +1,5 @@
-var BoardState = function() {};
 var mraa = require('mraa');
+var BoardState = function() {};
 
 BoardState.prototype.setBoardState = function(req) {
 

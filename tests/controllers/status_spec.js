@@ -6,7 +6,12 @@ describe('SubmitStatus: ', function() {
     it('replies to the POST with a success message', function() {
       var req, res;
       req = {
-        "body": {}
+        "body": {
+	  "build": {
+	    "buildStatus": "Compilation error: javac2",
+	    "buildResult": "failure"
+	  }
+	}
       };
 
       res = {
