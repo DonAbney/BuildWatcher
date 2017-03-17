@@ -16,11 +16,17 @@ BoardState.prototype.setBoardState = function(boardState, buildState) {
   switch (buildState) {
     case 'success':
       boardState['greenPin'].value = 1;
+      boardState['yellowPin'].value = 0;
+      boardState['redPin'].value = 0;
       break;
     case 'warning':
+      boardState['greenPin'].value = 0;
       boardState['yellowPin'].value = 1;
+      boardState['redPin'].value = 0;
       break;
     case 'failure':
+      boardState['greenPin'].value = 0;
+      boardState['yellowPin'].value = 0;
       boardState['redPin'].value = 1;
       break;
     default:

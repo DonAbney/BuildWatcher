@@ -1,5 +1,6 @@
 var Status = require('../../models/status');
 var BoardState = require('../../models/boardState');
+var BoardController = require('../../models/boardController');
 
 describe('Status: ', function() {
 
@@ -20,8 +21,11 @@ describe('Status: ', function() {
   describe('setStatus: ', function() {
     it('sets the status to the new value', function() {
       var status = new Status();
+      global.boardStateContainer = {yer: 'momma'}
 
+      spyOn(BoardState.prototype, 'initBoardState');
       spyOn(BoardState.prototype, 'setBoardState');
+      spyOn(BoardController.prototype, 'writeBoardState');
 
       status.setStatus(req);
 
@@ -33,6 +37,7 @@ describe('Status: ', function() {
 
       spyOn(BoardState.prototype, 'initBoardState');
       spyOn(BoardState.prototype, 'setBoardState');
+      spyOn(BoardController.prototype, 'writeBoardState');
 
       status.setStatus(req);
 
@@ -44,6 +49,7 @@ describe('Status: ', function() {
 
       spyOn(BoardState.prototype, 'initBoardState');
       spyOn(BoardState.prototype, 'setBoardState');
+      spyOn(BoardController.prototype, 'writeBoardState');
 
       status.setStatus(req);
 
@@ -56,10 +62,23 @@ describe('Status: ', function() {
 
       spyOn(BoardState.prototype, 'initBoardState');
       spyOn(BoardState.prototype, 'setBoardState');
+      spyOn(BoardController.prototype, 'writeBoardState');
 
       status.setStatus(req);
 
       expect(BoardState.prototype.initBoardState).not.toHaveBeenCalled();
+    });
+
+    it('writes the new state to the board', function() {
+      var status = new Status();
+
+      spyOn(BoardState.prototype, 'initBoardState');
+      spyOn(BoardState.prototype, 'setBoardState');
+      spyOn(BoardController.prototype, 'writeBoardState');
+
+      status.setStatus(req);
+
+      expect(BoardController.prototype.writeBoardState).toHaveBeenCalled();
     });
   })
 })
