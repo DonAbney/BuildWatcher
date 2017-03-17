@@ -1,25 +1,19 @@
-var mraa = require('mraa');
 var BoardState = function() {};
 
-var boardState = {};
-
 BoardState.prototype.initBoardState = function() {
+
+  var boardState = {};
+
   boardState['greenPin'] = {pin: 11, value: 0};
   boardState['yellowPin'] = {pin: 12, value: 0};
-  boardState['redPin'] = {pin: 13, value: 0};    
+  boardState['redPin'] = {pin: 13, value: 0};
+
+  return boardState;
 };
 
-BoardState.prototype.setBoardState = function(state) {
+BoardState.prototype.setBoardState = function(boardState, buildState) {
 
-  //parse the correct status
-  //set the new board state
-  //write the board state
-  //var pin8 = new mraa.Gpio(8);
-  //pin8.dir(mraa.DIR_OUT);
-  //pin8.write(1);
-  this.initBoardState();
-
-  switch (state) {
+  switch (buildState) {
     case 'success':
       boardState['greenPin'].value = 1;
       break;
@@ -29,6 +23,8 @@ BoardState.prototype.setBoardState = function(state) {
     case 'failure':
       boardState['redPin'].value = 1;
       break;
+    default:
+      console.log('Invalid build state received: ' + buildState);
   }
 
   return boardState;
