@@ -6,8 +6,11 @@ Status.prototype.setStatus = function(req) {
   var buildResult = req.body.build.buildResult;
   var boardState = new BoardState();
 
+  if (!global.boardStateContainer) {
+    global.boardStateContainer = boardState.initBoardState();
+  }
   //set the new board state
-  boardState.setBoardState(buildResult); 
+  boardState.setBoardState(global.boardStateContainer, buildResult); 
   
   //write the board state
 
