@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 //require('dotenv').config();
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 //in latest body-parser use like below.
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(require('./controllers'));
 
