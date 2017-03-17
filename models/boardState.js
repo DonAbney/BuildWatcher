@@ -9,6 +9,11 @@ BoardState.prototype.setBoardState = function(req) {
   //var pin8 = new mraa.Gpio(8);
   //pin8.dir(mraa.DIR_OUT);
   //pin8.write(1);
+  return {
+    greenPin: {value: 0},
+    yellowPin: {value: 0},
+    redPin: {value: 1}
+  }
 };
 
 module.exports = BoardState;
