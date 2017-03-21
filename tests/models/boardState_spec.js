@@ -37,7 +37,7 @@ describe('BoardState: ', function() {
 
     it('sets the pin for the yellow light when warning', function() {
       var boardState = new BoardState();
-      var buildState = 'warning';
+      var buildState = 'running';
 
       var actualResponse = boardState.setBoardState(testBoardState, buildState);
 

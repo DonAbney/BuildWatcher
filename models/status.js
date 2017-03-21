@@ -12,10 +12,12 @@ Status.prototype.setStatus = function(req) {
     global.boardStateContainer = boardState.initBoardState();
   }
   //set the new board state
-  global.boardStateContainer = boardState.setBoardState(global.boardStateContainer, buildResult); 
-  
-  //write the board state
-  boardController.writeBoardState(global.boardStateContainer);
+  if (req.body.build.branchName == '<default>') {
+     global.boardStateContainer = boardState.setBoardState(global.boardStateContainer, buildResult); 
+
+    //write the board state
+    boardController.writeBoardState(global.boardStateContainer);
+  }  
 
 };
 

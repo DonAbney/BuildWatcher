@@ -1,8 +1,8 @@
 var mraa = require('mraa');
 
-var redPin = new mraa.Gpio(11);
-var yellowPin = new mraa.Gpio(12);
-var greenPin = new mraa.Gpio(13);
+var redPin = new mraa.Gpio(38);
+var yellowPin = new mraa.Gpio(50);
+var greenPin = new mraa.Gpio(37);
 
 var BoardController = function() {};
 

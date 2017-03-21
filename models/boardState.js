@@ -19,7 +19,7 @@ BoardState.prototype.setBoardState = function(boardState, buildState) {
       boardState['yellowPin'].value = 0;
       boardState['redPin'].value = 0;
       break;
-    case 'warning':
+    case 'running':
       boardState['greenPin'].value = 0;
       boardState['yellowPin'].value = 1;
       boardState['redPin'].value = 0;

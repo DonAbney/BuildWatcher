@@ -12,7 +12,8 @@ describe('Status: ', function() {
       "body": {
         "build": {
           "buildStatus": "Compilation error: javac2",
-          "buildResult": "failure"
+          "buildResult": "failure",
+	  "branchName": "<default>"
         }
       }
     };
@@ -54,6 +55,20 @@ describe('Status: ', function() {
       status.setStatus(req);
 
       expect(BoardState.prototype.initBoardState).toHaveBeenCalled();
+    });
+
+    it('leaves state unchanged if not master', function() {
+      var status = new Status();
+
+      req.body.build.branchName = 'charlie';
+      spyOn(BoardState.prototype, 'initBoardState');
+      spyOn(BoardState.prototype, 'setBoardState');
+      spyOn(BoardController.prototype, 'writeBoardState');
+
+      status.setStatus(req);
+
+      expect(BoardState.prototype.setBoardState).not.toHaveBeenCalled();
+      expect(BoardController.prototype.writeBoardState).not.toHaveBeenCalled();
     });
 
     it('uses the global board state if it exists', function() {
