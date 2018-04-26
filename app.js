@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 //require('dotenv').config();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
 //in latest body-parser use like below.
 app.use(bodyParser.urlencoded({ extended: true }));
 
